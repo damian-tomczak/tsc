@@ -1,5 +1,7 @@
 #pragma once
 
+#include "ui.h"
+
 #include <QMainWindow>
 
 class App final : public QMainWindow
@@ -9,4 +11,7 @@ class App final : public QMainWindow
 public:
     explicit App(QWidget* parent = nullptr);
     ~App();
+
+private:
+    Ui mUi{};
 };

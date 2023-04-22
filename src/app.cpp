@@ -1,8 +1,11 @@
 #include "app.h"
 
-App::App(QWidget* parent)
+App::App(QWidget* pParent) : QMainWindow(pParent)
 {
-
+    mUi.setup(this);
 }
 
-App::~App() = default;
+App::~App()
+{
+    // TODO: mUi.cleanup();
+}
