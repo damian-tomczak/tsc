@@ -2,8 +2,6 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-find_package(Qt5 REQUIRED COMPONENTS Core Widgets OpenGL)
-
 file(GLOB_RECURSE SRC_FILES *.cpp)
 file(GLOB_RECURSE H_FILES *.h)
 file(GLOB_RECURSE HPP_FILES *.hpp)
@@ -30,6 +28,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt::OpenGL
     opengl32.lib
     glu32.lib
+    Qt::SerialPort
 )
 
 set_property(DIRECTORY ${CMAKE_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${CMAKE_PROJECT_NAME})

@@ -19,6 +19,28 @@ void Ui::setup(QMainWindow* pMainWindow)
     QMetaObject::connectSlotsByName(pMainWindow);
 }
 
+void Ui::setupBar(QMainWindow* pMainWindow)
+{
+    pMenuBar = new QMenuBar(pMainWindow);
+    pMainWindow->setMenuBar(pMenuBar);
+    pMenuBar->setGeometry(QRect(0, 0, 957, 26));
+    pMenuFile = new QMenu(pMenuBar);
+    pMenuFile->setTitle("File");
+    pMenuHelp = new QMenu(pMenuBar);
+    pMenuHelp->setTitle("Help");
+
+    pMenuBar->addAction(pMenuFile->menuAction());
+    pFileOpenAct = new QAction(pMainWindow);
+    pFileOpenAct->setObjectName(QString::fromUtf8("FileOpen"));
+    pFileOpenAct->setText("Open");
+    pMenuFile->addAction(pFileOpenAct);
+    pMenuBar->addAction(pMenuHelp->menuAction());
+    pAboutAct = new QAction(pMainWindow);
+    pAboutAct->setObjectName(QString::fromUtf8("About"));
+    pAboutAct->setText("About");
+    pMenuHelp->addAction(pAboutAct);
+}
+
 void Ui::setupSide()
 {
     pSideGrp = new QGroupBox(pCentralWidget);
@@ -29,15 +51,15 @@ void Ui::setupSide()
     pConnGrp->setTitle(QString::fromUtf8("Connection"));
     pConnVerticalLayout = new QVBoxLayout(pConnGrp);
     pConnFormLayout = new QFormLayout();
-    pConnDecorationLabel = new QLabel(pConnGrp);
-    pConnDecorationLabel->setText(QString::fromUtf8("Status:"));
-    pConnFormLayout->setWidget(0, QFormLayout::LabelRole, pConnDecorationLabel);
-    pConnTxt = new QLineEdit(pConnGrp);
-    pConnTxt->setEnabled(false);
-    pConnTxt->setAlignment(Qt::AlignCenter);
-    pConnTxt->setReadOnly(true);
-    pConnFormLayout->setWidget(0, QFormLayout::FieldRole, pConnTxt);
-    pConnTxt->setText(QString::fromUtf8("Not connected"));
+    pConnStatusLabel = new QLabel(pConnGrp);
+    pConnStatusLabel->setText(QString::fromUtf8("Status:"));
+    pConnFormLayout->setWidget(0, QFormLayout::LabelRole, pConnStatusLabel);
+    pConnStatus = new QLineEdit(pConnGrp);
+    pConnStatus->setEnabled(false);
+    pConnStatus->setAlignment(Qt::AlignCenter);
+    pConnStatus->setReadOnly(true);
+    pConnFormLayout->setWidget(0, QFormLayout::FieldRole, pConnStatus);
+    pConnStatus->setText(QString::fromUtf8("Not connected"));
     pConnVerticalLayout->addLayout(pConnFormLayout);
 
     pConnHorizontalLayoutParams = new QHBoxLayout();
@@ -47,6 +69,7 @@ void Ui::setupSide()
     pConnPortCbo = new QComboBox(pConnGrp);
     pConnHorizontalLayoutParams->addWidget(pConnPortCbo);
     pConnButtonRefresh = new QToolButton(pConnGrp);
+    pConnButtonRefresh->setObjectName(QString::fromUtf8("BaudRefresh"));
     pConnButtonRefresh->setText(QString::fromUtf8("Refresh"));
     pConnHorizontalLayoutParams->addWidget(pConnButtonRefresh);
     pConnBaudLabel = new QLabel(pConnGrp);
@@ -62,12 +85,13 @@ void Ui::setupSide()
     pConnHorizontalLayoutParams->addWidget(pConnBaudCbo);
     pConnVerticalLayout->addLayout(pConnHorizontalLayoutParams);
     pConnHorizontalLayoutActions = new QHBoxLayout();
-    pConnButtonConnect = new QToolButton(pConnGrp);
-    pConnButtonConnect->setText(QString::fromUtf8("Connect"));
-    pConnHorizontalLayoutActions->addWidget(pConnButtonConnect);
-    pConnButtonStop = new QToolButton(pConnGrp);
-    pConnButtonStop->setText(QString::fromUtf8("Stop"));
-    pConnHorizontalLayoutActions->addWidget(pConnButtonStop);
+    pConnBtnConnect = new QToolButton(pConnGrp);
+    pConnBtnConnect->setObjectName(QString::fromUtf8("Connect"));
+    pConnBtnConnect->setText(QString::fromUtf8("Connect"));
+    pConnHorizontalLayoutActions->addWidget(pConnBtnConnect);
+    pConnBtnStop = new QToolButton(pConnGrp);
+    pConnBtnStop->setText(QString::fromUtf8("Stop"));
+    pConnHorizontalLayoutActions->addWidget(pConnBtnStop);
     pConnVerticalLayout->addLayout(pConnHorizontalLayoutActions);
     pSideVerticalLayout->addWidget(pConnGrp);
 
@@ -122,26 +146,4 @@ void Ui::setupProgram()
 
     pProgramTbl = new QTableView(pProgramGrp);
     pProgramVerticalLayout->addWidget(pProgramTbl, 1);
-}
-
-void Ui::setupBar(QMainWindow* pMainWindow)
-{
-    pMenuBar = new QMenuBar(pMainWindow);
-    pMainWindow->setMenuBar(pMenuBar);
-    pMenuBar->setGeometry(QRect(0, 0, 957, 26));
-    pMenuFile = new QMenu(pMenuBar);
-    pMenuFile->setTitle("File");
-    pMenuHelp = new QMenu(pMenuBar);
-    pMenuHelp->setTitle("Help");
-
-    pMenuBar->addAction(pMenuFile->menuAction());
-    pFileOpenAct = new QAction(pMainWindow);
-    pFileOpenAct->setObjectName(QString::fromUtf8("FileOpen"));
-    pFileOpenAct->setText("Open");
-    pMenuFile->addAction(pFileOpenAct);
-    pMenuBar->addAction(pMenuHelp->menuAction());
-    pAboutAct = new QAction(pMainWindow);
-    pAboutAct->setObjectName(QString::fromUtf8("About"));
-    pAboutAct->setText("About");
-    pMenuHelp->addAction(pAboutAct);
 }

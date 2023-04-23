@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ui.h"
+#include "grbl_ctrl.h"
 
 #include <QMainWindow>
 #include <QMessageBox>
@@ -17,8 +18,11 @@ public:
 
 private:
     Ui mUi{};
+    GrblCtrl mGrblCtrl;
 
 private slots:
+    void on_Connect_clicked();
     void on_FileOpen_triggered();
     void on_About_triggered();
+    void on_BaudRefresh_clicked();
 };
