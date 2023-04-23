@@ -30,6 +30,7 @@
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QComboBox>
 
 struct Ui final
 {
@@ -42,10 +43,18 @@ struct Ui final
     QGroupBox* pMenuGrp;
     QVBoxLayout* pMenuVerticalLayout;
 
-    QGroupBox* pConnectionGrp;
-    QFormLayout* pConnectionFormLayout;
-    QLabel* pConnectionLabel;
-    QLineEdit* pConnectionTxt;
+    QGroupBox* pConnGrp;
+    QVBoxLayout* pConnVerticalLayout;
+    QFormLayout* pConnFormLayout;
+    QLabel* pConnDecorationLabel;
+    QLineEdit* pConnTxt;
+    QHBoxLayout* pConnHorizontalLayout;
+    QLabel* pConnPortLabel;
+    QComboBox* pConnPortCbo;
+    QToolButton* pConnButtonRefresh;
+    QLabel* pConnBaudLabel;
+    QComboBox* pConnBaudCbo;
+    QToolButton* pConnButtonConnect;
 
     QGroupBox* pStateGrp;
     QVBoxLayout* pStateVerticalLayout;
