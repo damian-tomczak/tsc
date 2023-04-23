@@ -8,7 +8,6 @@ void Ui::setup(QMainWindow* pMainWindow)
 
     pCentralWidget = new QWidget(pMainWindow);
     pMainWindow->setCentralWidget(pCentralWidget);
-
     pCentralHorizontalLayout = new QHBoxLayout(pCentralWidget);
 
     setupSide();
@@ -16,7 +15,6 @@ void Ui::setup(QMainWindow* pMainWindow)
 
     setupProgram();
     pCentralHorizontalLayout->addWidget(pProgramGrp);
-
 
     QMetaObject::connectSlotsByName(pMainWindow);
 }
@@ -135,12 +133,15 @@ void Ui::setupBar(QMainWindow* pMainWindow)
     pMenuFile->setTitle("File");
     pMenuHelp = new QMenu(pMenuBar);
     pMenuHelp->setTitle("Help");
+
     pMenuBar->addAction(pMenuFile->menuAction());
     pFileOpenAct = new QAction(pMainWindow);
+    pFileOpenAct->setObjectName(QString::fromUtf8("FileOpen"));
     pFileOpenAct->setText("Open");
     pMenuFile->addAction(pFileOpenAct);
     pMenuBar->addAction(pMenuHelp->menuAction());
     pAboutAct = new QAction(pMainWindow);
+    pAboutAct->setObjectName(QString::fromUtf8("About"));
     pAboutAct->setText("About");
     pMenuHelp->addAction(pAboutAct);
 }
