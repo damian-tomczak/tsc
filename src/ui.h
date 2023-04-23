@@ -37,36 +37,36 @@ struct Ui final
     // TODO: void cleanup();
 
     QWidget* pCentralWidget;
-    QHBoxLayout* centralHorizontalLayout;
+    QHBoxLayout* pCentralHorizontalLayout;
 
-    QGroupBox* menuGrp;
-    QVBoxLayout* menuVerticalLayout;
+    QGroupBox* pMenuGrp;
+    QVBoxLayout* pMenuVerticalLayout;
 
-    QGroupBox* connectionGrp;
-    QFormLayout* connectionFormLayout;
-    QLabel* connectionLabel;
-    QLineEdit* connectionTxt;
+    QGroupBox* pConnectionGrp;
+    QFormLayout* pConnectionFormLayout;
+    QLabel* pConnectionLabel;
+    QLineEdit* pConnectionTxt;
 
-    QGroupBox* stateGrp;
-    QVBoxLayout* stateVerticalLayout;
-    QLabel* stateLabel;
+    QGroupBox* pStateGrp;
+    QVBoxLayout* pStateVerticalLayout;
+    QLabel* pStateLabel;
 
-    QHBoxLayout* stateHorizontalLayout;
-    QLineEdit* posXtxt;
-    QLineEdit* posYtxt;
-    QLineEdit* posZtxt;
+    QHBoxLayout* pStateHorizontalLayout;
+    QLineEdit* pPosXtxt;
+    QLineEdit* pPosYtxt;
+    QLineEdit* pPosZtxt;
 
-    QGroupBox* consoleGrp;
-    QVBoxLayout* consoleVerticalLayout;
-    QPlainTextEdit* consoleOutputTxt;
-    QHBoxLayout* consoleHorizontalLayout;
-    QLineEdit* consoleCmdTxt;
-    QPushButton* consoleButton;
+    QGroupBox* pConsoleGrp;
+    QVBoxLayout* pConsoleVerticalLayout;
+    QPlainTextEdit* pConsoleOutputTxt;
+    QHBoxLayout* pConsoleHorizontalLayout;
+    QLineEdit* pConsoleCmdTxt;
+    QPushButton* pConsoleButton;
 
-    QGroupBox* programGrp;
-    QVBoxLayout* programVerticalLayout;
-    Graph* graph;
-    QTableView* programTbl;
+    QGroupBox* pProgramGrp;
+    QVBoxLayout* pProgramVerticalLayout;
+    Graph* pGraph;
+    QTableView* pProgramTbl;
 
 private:
     void setupMenu();

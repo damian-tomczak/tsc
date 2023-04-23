@@ -28,6 +28,8 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt::Core
     Qt::Widgets
     Qt::OpenGL
+    opengl32.lib
+    glu32.lib
 )
 
 set_property(DIRECTORY ${CMAKE_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${CMAKE_PROJECT_NAME})

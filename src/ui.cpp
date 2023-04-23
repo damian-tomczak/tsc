@@ -7,84 +7,84 @@ void Ui::setup(QMainWindow* pMainWindow)
     pCentralWidget = new QWidget(pMainWindow);
     pMainWindow->setCentralWidget(pCentralWidget);
 
-    centralHorizontalLayout = new QHBoxLayout(pCentralWidget);
+    pCentralHorizontalLayout = new QHBoxLayout(pCentralWidget);
 
     setupMenu();
-    centralHorizontalLayout->addWidget(menuGrp);
+    pCentralHorizontalLayout->addWidget(pMenuGrp);
 
     setupProgram();
-    centralHorizontalLayout->addWidget(programGrp);
+    pCentralHorizontalLayout->addWidget(pProgramGrp);
 }
 
 void Ui::setupMenu()
 {
-    menuGrp = new QGroupBox(pCentralWidget);
-    menuGrp->setTitle(QString::fromUtf8("Menu"));
-    menuVerticalLayout = new QVBoxLayout(menuGrp);
+    pMenuGrp = new QGroupBox(pCentralWidget);
+    pMenuGrp->setTitle(QString::fromUtf8("Menu"));
+    pMenuVerticalLayout = new QVBoxLayout(pMenuGrp);
 
-    connectionGrp = new QGroupBox(menuGrp);
-    connectionGrp->setTitle(QString::fromUtf8("Connection"));
-    connectionFormLayout = new QFormLayout(connectionGrp);
-    connectionLabel = new QLabel(connectionGrp);
-    connectionFormLayout->setWidget(0, QFormLayout::LabelRole, connectionLabel);
-    connectionTxt = new QLineEdit(connectionGrp);
-    connectionTxt->setEnabled(false);
-    connectionTxt->setAlignment(Qt::AlignCenter);
-    connectionTxt->setReadOnly(true);
-    connectionFormLayout->setWidget(0, QFormLayout::FieldRole, connectionTxt);
-    connectionLabel->setText(QString::fromUtf8("Status:"));
-    connectionTxt->setText(QString::fromUtf8("Not connected"));
-    menuVerticalLayout->addWidget(connectionGrp);
+    pConnectionGrp = new QGroupBox(pMenuGrp);
+    pConnectionGrp->setTitle(QString::fromUtf8("Connection"));
+    pConnectionFormLayout = new QFormLayout(pConnectionGrp);
+    pConnectionLabel = new QLabel(pConnectionGrp);
+    pConnectionFormLayout->setWidget(0, QFormLayout::LabelRole, pConnectionLabel);
+    pConnectionTxt = new QLineEdit(pConnectionGrp);
+    pConnectionTxt->setEnabled(false);
+    pConnectionTxt->setAlignment(Qt::AlignCenter);
+    pConnectionTxt->setReadOnly(true);
+    pConnectionFormLayout->setWidget(0, QFormLayout::FieldRole, pConnectionTxt);
+    pConnectionLabel->setText(QString::fromUtf8("Status:"));
+    pConnectionTxt->setText(QString::fromUtf8("Not connected"));
+    pMenuVerticalLayout->addWidget(pConnectionGrp);
 
-    stateGrp = new QGroupBox(menuGrp);
-    stateGrp->setTitle(QString::fromUtf8("State"));
-    stateVerticalLayout = new QVBoxLayout(stateGrp);
-    stateLabel = new QLabel(stateGrp);
-    stateLabel->setText(QString::fromUtf8("Coordinates:"));
-    stateVerticalLayout->addWidget(stateLabel);
-    stateHorizontalLayout = new QHBoxLayout();
-    posXtxt = new QLineEdit(stateGrp);
-    posXtxt->setText(QString::fromUtf8("0"));
-    posXtxt->setAlignment(Qt::AlignCenter);
-    posXtxt->setReadOnly(true);
-    stateHorizontalLayout->addWidget(posXtxt);
-    posYtxt = new QLineEdit(stateGrp);
-    posYtxt->setText(QString::fromUtf8("0"));
-    posYtxt->setAlignment(Qt::AlignCenter);
-    posYtxt->setReadOnly(true);
-    stateHorizontalLayout->addWidget(posYtxt);
-    posZtxt = new QLineEdit(stateGrp);
-    posZtxt->setAlignment(Qt::AlignCenter);
-    posZtxt->setReadOnly(true);
-    posZtxt->setText(QString::fromUtf8("0"));
-    stateHorizontalLayout->addWidget(posZtxt);
-    stateVerticalLayout->addLayout(stateHorizontalLayout);
-    menuVerticalLayout->addWidget(stateGrp);
+    pStateGrp = new QGroupBox(pMenuGrp);
+    pStateGrp->setTitle(QString::fromUtf8("State"));
+    pStateVerticalLayout = new QVBoxLayout(pStateGrp);
+    pStateLabel = new QLabel(pStateGrp);
+    pStateLabel->setText(QString::fromUtf8("Coordinates:"));
+    pStateVerticalLayout->addWidget(pStateLabel);
+    pStateHorizontalLayout = new QHBoxLayout();
+    pPosXtxt = new QLineEdit(pStateGrp);
+    pPosXtxt->setText(QString::fromUtf8("0"));
+    pPosXtxt->setAlignment(Qt::AlignCenter);
+    pPosXtxt->setReadOnly(true);
+    pStateHorizontalLayout->addWidget(pPosXtxt);
+    pPosYtxt = new QLineEdit(pStateGrp);
+    pPosYtxt->setText(QString::fromUtf8("0"));
+    pPosYtxt->setAlignment(Qt::AlignCenter);
+    pPosYtxt->setReadOnly(true);
+    pStateHorizontalLayout->addWidget(pPosYtxt);
+    pPosZtxt = new QLineEdit(pStateGrp);
+    pPosZtxt->setAlignment(Qt::AlignCenter);
+    pPosZtxt->setReadOnly(true);
+    pPosZtxt->setText(QString::fromUtf8("0"));
+    pStateHorizontalLayout->addWidget(pPosZtxt);
+    pStateVerticalLayout->addLayout(pStateHorizontalLayout);
+    pMenuVerticalLayout->addWidget(pStateGrp);
 
-    consoleGrp = new QGroupBox(menuGrp);
-    consoleGrp->setTitle(QString::fromUtf8("Console"));
-    consoleVerticalLayout = new QVBoxLayout(consoleGrp);
-    consoleOutputTxt = new QPlainTextEdit(consoleGrp);
-    consoleVerticalLayout->addWidget(consoleOutputTxt);
-    consoleHorizontalLayout = new QHBoxLayout();
-    consoleCmdTxt = new QLineEdit(consoleGrp);
-    consoleHorizontalLayout->addWidget(consoleCmdTxt);
-    consoleButton = new QPushButton(consoleGrp);
-    consoleButton->setText(QString::fromUtf8(">"));
-    consoleHorizontalLayout->addWidget(consoleButton);
-    consoleVerticalLayout->addLayout(consoleHorizontalLayout);
-    menuVerticalLayout->addWidget(consoleGrp);
+    pConsoleGrp = new QGroupBox(pMenuGrp);
+    pConsoleGrp->setTitle(QString::fromUtf8("Console"));
+    pConsoleVerticalLayout = new QVBoxLayout(pConsoleGrp);
+    pConsoleOutputTxt = new QPlainTextEdit(pConsoleGrp);
+    pConsoleVerticalLayout->addWidget(pConsoleOutputTxt);
+    pConsoleHorizontalLayout = new QHBoxLayout();
+    pConsoleCmdTxt = new QLineEdit(pConsoleGrp);
+    pConsoleHorizontalLayout->addWidget(pConsoleCmdTxt);
+    pConsoleButton = new QPushButton(pConsoleGrp);
+    pConsoleButton->setText(QString::fromUtf8(">"));
+    pConsoleHorizontalLayout->addWidget(pConsoleButton);
+    pConsoleVerticalLayout->addLayout(pConsoleHorizontalLayout);
+    pMenuVerticalLayout->addWidget(pConsoleGrp);
 }
 
 void Ui::setupProgram()
 {
-    programGrp = new QGroupBox(pCentralWidget);
-    programGrp->setTitle(QString::fromUtf8("Program"));
-    programVerticalLayout = new QVBoxLayout(programGrp);
+    pProgramGrp = new QGroupBox(pCentralWidget);
+    pProgramGrp->setTitle(QString::fromUtf8("Program"));
+    pProgramVerticalLayout = new QVBoxLayout(pProgramGrp);
 
-    graph = new Graph(programGrp);
-    programVerticalLayout->addWidget(graph);
+    pGraph = new Graph(pProgramGrp);
+    pProgramVerticalLayout->addWidget(pGraph, 1);
 
-    programTbl = new QTableView(programGrp);
-    programVerticalLayout->addWidget(programTbl);
+    pProgramTbl = new QTableView(pProgramGrp);
+    pProgramVerticalLayout->addWidget(pProgramTbl, 1);
 }
