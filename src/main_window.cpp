@@ -1,4 +1,4 @@
-#include "main_window.h"
+﻿#include "main_window.h"
 
 MainWindow::MainWindow(QWidget* pParent) : QMainWindow(pParent)
 {
@@ -17,5 +17,8 @@ void MainWindow::on_FileOpen_triggered()
 
 void MainWindow::on_About_triggered()
 {
-    std::cout << "About\n";
+    QMessageBox::information(this, "About",
+        "Simple GRBL Controller made for Michelin Olsztyn\n"
+        "as the part of the University of Warmia and Mazury assingment project\n\n"
+        "Authors: Damian Tomczak, Dominik Slodkowski, Szymon Chura");
 }
