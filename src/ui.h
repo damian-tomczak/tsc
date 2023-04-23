@@ -40,21 +40,23 @@ struct Ui final
     QWidget* pCentralWidget;
     QHBoxLayout* pCentralHorizontalLayout;
 
-    QGroupBox* pMenuGrp;
-    QVBoxLayout* pMenuVerticalLayout;
+    QGroupBox* pSideGrp;
+    QVBoxLayout* pSideVerticalLayout;
 
     QGroupBox* pConnGrp;
     QVBoxLayout* pConnVerticalLayout;
     QFormLayout* pConnFormLayout;
     QLabel* pConnDecorationLabel;
     QLineEdit* pConnTxt;
-    QHBoxLayout* pConnHorizontalLayout;
+    QHBoxLayout* pConnHorizontalLayoutParams;
     QLabel* pConnPortLabel;
     QComboBox* pConnPortCbo;
     QToolButton* pConnButtonRefresh;
     QLabel* pConnBaudLabel;
     QComboBox* pConnBaudCbo;
+    QHBoxLayout* pConnHorizontalLayoutActions;
     QToolButton* pConnButtonConnect;
+    QToolButton* pConnButtonStop;
 
     QGroupBox* pStateGrp;
     QVBoxLayout* pStateVerticalLayout;
@@ -77,7 +79,15 @@ struct Ui final
     Graph* pGraph;
     QTableView* pProgramTbl;
 
+    QAction* pFileOpenAct;
+    QAction* pAboutAct;
+
+    QMenuBar* pMenuBar;
+    QMenu* pMenuFile;
+    QMenu* pMenuHelp;
+
 private:
-    void setupMenu();
+    void setupSide();
     void setupProgram();
+    void setupBar(QMainWindow* pMainWindow);
 };
