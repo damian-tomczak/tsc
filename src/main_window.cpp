@@ -261,10 +261,6 @@ void MainWindow::onSerialPortReadyRead()
         {
             CommandAttributes ca = mCommands.takeFirst();
 
-            if (ca.tableIndex == (mTblModel.rowCount() - 1))
-            {
-                mIsFileSending = false;
-            }
             if (mIsFileSending)
             {
                 if (ca.tableIndex != -1)
@@ -272,6 +268,11 @@ void MainWindow::onSerialPortReadyRead()
                     mTblModel.setData(mTblModel.index(ca.tableIndex, 1), "Processed");
                     mUi.pProgramTbl->scrollTo(mTblModel.index(ca.tableIndex + 1, 0));
                     mUi.pProgramTbl->setCurrentIndex(mTblModel.index(ca.tableIndex, 1));
+
+                    if (ca.tableIndex == (mTblModel.rowCount() - 1))
+                    {
+                        mIsFileSending = false;
+                    }
                 }
                 sendNextFileCommands();
             }
