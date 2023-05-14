@@ -2,12 +2,17 @@
 
 #include <QApplication>
 
-int main(int argc, char** argv)
+int main(int argc, char** argv) try
 {
     QApplication a(argc, argv);
 
-    MainWindow app;
-    app.show();
+    MainWindow mainWindow;
+    mainWindow.show();
 
-    return a.exec();
+    return a.exec();;
+}
+catch (const std::exception& e)
+{
+    std::cerr << e.what() << "\n";
+    return EXIT_FAILURE;
 }

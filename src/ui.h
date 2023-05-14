@@ -35,7 +35,6 @@
 struct Ui final
 {
     void setup(QMainWindow* pMainWindow);
-    // TODO: void cleanup();
 
     QWidget* pCentralWidget;
     QHBoxLayout* pCentralHorizontalLayout;
@@ -57,22 +56,24 @@ struct Ui final
     QHBoxLayout* pConnHorizontalLayoutActions;
     QToolButton* pConnBtnConnect;
     QToolButton* pConnBtnStop;
+    QHBoxLayout* pSendHLayoutActs;
+    QToolButton* pConnBtnSend;
 
     QGroupBox* pStateGrp;
     QVBoxLayout* pStateVerticalLayout;
     QLabel* pStateLabel;
 
     QHBoxLayout* pStateHorizontalLayout;
-    QLineEdit* pPosXtxt;
-    QLineEdit* pPosYtxt;
-    QLineEdit* pPosZtxt;
+    QLineEdit* pStatePosXtxt;
+    QLineEdit* pStatePosYtxt;
+    QLineEdit* pStatePosZtxt;
 
     QGroupBox* pConsoleGrp;
     QVBoxLayout* pConsoleVerticalLayout;
     QPlainTextEdit* pConsoleOutputTxt;
     QHBoxLayout* pConsoleHorizontalLayout;
     QLineEdit* pConsoleCmdTxt;
-    QPushButton* pConsoleButton;
+    QPushButton* pConBtn;
 
     QGroupBox* pProgramGrp;
     QVBoxLayout* pProgramVerticalLayout;
@@ -81,6 +82,7 @@ struct Ui final
 
     QAction* pFileOpenAct;
     QAction* pAboutAct;
+    QAction* pConstraintsAct;
 
     QMenuBar* pMenuBar;
     QMenu* pMenuFile;
