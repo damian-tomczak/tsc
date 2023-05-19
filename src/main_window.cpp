@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget* pParent) : QMainWindow{ pParent }
 
     QObject::connect(mUi.pConsoleCmdTxt, &QLineEdit::returnPressed, this, &MainWindow::sendConsole);
 
+    searchPorts();
     updateControlsState();
 
     connect(&mSerialPort, &QSerialPort::readyRead, this, &MainWindow::onSerialPortReadyRead);
@@ -171,8 +172,6 @@ void MainWindow::sendConsole()
 
 void MainWindow::updateControlsState()
 {
-    searchPorts();
-
     bool portOpened{ mSerialPort.isOpen() };
 
     mUi.pConnPortCbo->setEnabled(!mIsFileLoading);
